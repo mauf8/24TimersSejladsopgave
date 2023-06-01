@@ -15,12 +15,28 @@ private int Id;
 
     private String bådNavn;
 
+    private int point;
+
 
 
     //Her kalder jeg på @Enumerated(EnumType.STRING), som instruere JPA til at lægge enum værdien ned i databasen som strings.
     @Enumerated(EnumType.STRING)
     private BådType bådType;
 
+
+    @ManyToOne
+    private Kapsejladsræs kapsejladsræs;
+
+
+
+
+    public Kapsejladsræs getKapsejladsræs() {
+        return kapsejladsræs;
+    }
+
+    public void setKapsejladsræs(Kapsejladsræs kapsejladsræs) {
+        this.kapsejladsræs = kapsejladsræs;
+    }
 
     public String getBådNavn() {
         return bådNavn;
@@ -46,5 +62,11 @@ private int Id;
         this.bådType = bådType;
     }
 
+    public int getPoint() {
+        return point;
+    }
 
+    public void setPoint(int point) {
+        this.point = point;
+    }
 }
